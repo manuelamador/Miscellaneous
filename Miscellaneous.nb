@@ -1,0 +1,363 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     17109,        354]
+NotebookOptionsPosition[     16739,        336]
+NotebookOutlinePosition[     17096,        352]
+CellTagsIndexPosition[     17053,        349]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "Miscellaneous`"}]], "Input",
+ CellChangeTimes->{{3.568145098817976*^9, 3.568145127723817*^9}, {
+  3.5723682147233*^9, 3.5723682323827877`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"data", ",", " ", "options"}], "}"}], ",", " ", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"countries", "=", 
+          RowBox[{"DeleteCases", "[", 
+           RowBox[{
+            RowBox[{"CountryData", "[", "\"\<UN\>\"", "]"}], ",", 
+            RowBox[{"x_", "/;", 
+             RowBox[{
+              RowBox[{"CountryData", "[", 
+               RowBox[{"x", ",", "\"\<Population\>\""}], "]"}], "<", 
+              "1000000"}]}]}], "]"}]}], ",", 
+         RowBox[{"usGDPPC", "=", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"CountryData", "[", 
+              RowBox[{"#", ",", 
+               RowBox[{"{", 
+                RowBox[{"\"\<GDP\>\"", ",", "2008"}], "}"}]}], "]"}], "/", 
+             RowBox[{"CountryData", "[", 
+              RowBox[{"#", ",", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Population\>\"", ",", "2008"}], "}"}]}], "]"}]}],
+             "&"}], "@", "\"\<US\>\""}]}]}], "}"}], ",", 
+       RowBox[{"data", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Log", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"y", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "/", 
+               RowBox[{"y", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "/", "usGDPPC"}], "]"}], 
+            ",", 
+            RowBox[{"Mean", "@", 
+             RowBox[{"MapThread", "[", 
+              RowBox[{"Divide", ",", 
+               RowBox[{"Transpose", "[", 
+                RowBox[{"y", "[", 
+                 RowBox[{"[", "3", "]"}], "]"}], "]"}]}], "]"}]}], ",", 
+            RowBox[{"y", "[", 
+             RowBox[{"[", "4", "]"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"y", ",", 
+            RowBox[{"Sort", "[", 
+             RowBox[{
+              RowBox[{"Select", "[", 
+               RowBox[{
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"CountryData", "[", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<Population\>\"", ",", "2008"}], "}"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"CountryData", "[", 
+                    RowBox[{"x", ",", "\"\<GDPAtParity\>\""}], "]"}], ",", 
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"CountryData", "[", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<GrossInvestment\>\"", ",", "i"}], "}"}]}], 
+                    "]"}], ",", 
+                    RowBox[{"CountryData", "[", 
+                    RowBox[{"x", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"\"\<GDP\>\"", ",", "i"}], "}"}]}], "]"}]}], 
+                    "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "1970", ",", "2008"}], "}"}]}], "]"}], 
+                    ",", "x"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"x", ",", "countries"}], "}"}]}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"FreeQ", "[", 
+                  RowBox[{"#", ",", "_Missing"}], "]"}], "&"}]}], "]"}], ",", 
+              
+              RowBox[{
+               RowBox[{
+                RowBox[{"#1", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], ">", 
+                RowBox[{"#2", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}]}], "&"}]}], "]"}]}], "}"}]}], 
+         "]"}]}]}], "]"}], ";", "\n", 
+     RowBox[{"options", " ", "=", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"FrameTicks", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"Log", "[", 
+                 RowBox[{"1", "/", "y"}], "]"}], ",", 
+                RowBox[{"\"\<1/\>\"", "~~", 
+                 RowBox[{"ToString", "[", "y", "]"}]}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"y", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "1", ",", "2", ",", "4", ",", "8", ",", "16", ",", "32", ",",
+                   "64", ",", 
+                  RowBox[{"64", " ", "2"}]}], "}"}]}], "}"}]}], "]"}], "]"}], 
+           ",", "Automatic"}], "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<\\!\\(\\*FractionBox[\\(Y/L\\), \\(\\*SubscriptBox[\\(Y\\), \
+\\(US\\)]/\\*SubscriptBox[\\(L\\), \\(US\\)]\\)]\\) in 2008\>\"", ",", 
+           "\"\<I/Y (average 1970-2008)\>\""}], "}"}]}]}], "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"listPlotSelectedLabels", "[", " ", 
+      RowBox[{"data", ",", " ", "0.03", ",", " ", "options"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.568145179336433*^9, 3.568145179340217*^9}, {
+  3.568149407284753*^9, 3.568149409363681*^9}, {3.572368283600395*^9, 
+  3.5723683243555727`*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{
+  Miscellaneous`Private`dataToPlot$$ = {{{-2.0303438846778854`, 
+    0.36031419523767977`}, "China", True}, {{-2.8070136234394463`, 
+    0.2579301882255528}, "India", True}, {{0.024060205105777784`, 
+    0.19145285253981598`}, "UnitedStates", True}, {{-2.441126002683284, 
+    0.22955242553411823`}, "Indonesia", True}, {{-1.4928822150151242`, 
+    0.1957504936372416}, "Brazil", True}, {{-2.944744415625818, 
+    0.19667339267585673`}, "Pakistan", True}, {{-3.488308488363618, 
+    0.17917338898850063`}, "Bangladesh", True}, {{-3.0364155039196348`, 
+    0.17418965806054537`}, "Nigeria", False}, {{-0.3062998309410899, 
+    0.29681966441980323`}, "Japan", True}, {{-1.1657803558012505`, 
+    0.2606943767935728}, "Mexico", True}, {{-2.576430821052797, 
+    0.22227249933494228`}, "Philippines", False}, {{-2.812270585762055, 
+    0.21735944361334075`}, "Vietnam", False}, {{-0.26432428120701507`, 
+    0.22331867538808622`}, "Germany", True}, {{-2.138748839977568, 
+    0.26092506723109493`}, "Egypt", False}, {{-1.3316242574580157`, 
+    0.19912125595527577`}, "Turkey", False}, {{-1.3923617892078366`, 
+    0.33472038704996687`}, "Iran", True}, {{-1.7383283402601777`, 
+    0.3019057649237117}, "Thailand", True}, {{-4.965294148087447, 
+    0.19571427406919886`}, "DemocraticRepublicCongo", 
+    True}, {{-0.32809238967918264`, 0.21442003909038482`}, "France", 
+    False}, {{-0.2376455615541883, 0.182787000817265}, "UnitedKingdom", 
+    False}, {{-0.4127244164273185, 0.22427632013872115`}, "Italy", 
+    False}, {{-1.5419054542969113`, 0.21607160058220673`}, "SouthAfrica", 
+    False}, {{-3.7264519245809407`, 0.13962778794381778`}, "Myanmar", 
+    True}, {{-0.510874758663188, 0.3068379019985946}, "SouthKorea", 
+    True}, {{-1.6609542618547306`, 0.2446477607247631}, "Colombia", 
+    True}, {{-0.384965743784916, 0.25068422469100926`}, "Spain", 
+    True}, {{-3.0759220273772687`, 0.17113690988975133`}, "Sudan", 
+    False}, {{-3.56048314298015, 0.24043396477645715`}, "Tanzania", 
+    True}, {{-1.166669079526745, 0.19749418042461567`}, "Argentina", 
+    False}, {{-3.3714898159846745`, 0.17121301759919227`}, "Kenya", 
+    False}, {{-0.9674351959508884, 0.2082210807073249}, "Poland", 
+    False}, {{-1.9195389081976604`, 0.33474237124288053`}, "Algeria", 
+    False}, {{-0.16734854284678657`, 0.21481971393737614`}, "Canada", 
+    False}, {{-3.5995147913860137`, 0.13519412842389977`}, "Uganda", 
+    False}, {{-2.362243260981138, 0.27235364412687557`}, "Morocco", 
+    True}, {{-2.7374758991820904`, 0.1799892945711994}, "Iraq", 
+    False}, {{-1.684060661877229, 0.19987561791189623`}, "Peru", 
+    False}, {{-3.74965394494575, 0.18755555590886466`}, "Nepal", 
+    False}, {{-1.2961676530828576`, 0.32202472860029563`}, "Venezuela", 
+    True}, {{-4.033477074595753, 0.14511668648494952`}, "Afghanistan", 
+    False}, {{-1.1780422646088844`, 0.281225416176631}, "Malaysia", 
+    True}, {{-0.7029008863153522, 0.20893995305296778`}, "SaudiArabia", 
+    False}, {{-3.444535036784918, 0.1612177935715191}, "Ghana", 
+    True}, {{-3.9935063390981784`, 0.1587773100818232}, "Mozambique", 
+    False}, {{-1.2912152778080104`, 0.29014493792731894`}, "Romania", 
+    False}, {{-2.294981679769214, 0.2239252393678555}, "Syria", 
+    False}, {{-0.19526513098109372`, 0.25621603665586196`}, "Australia", 
+    False}, {{-3.3304222504560297`, 0.15528201616261592`}, "IvoryCoast", 
+    False}, {{-2.3114304463401387`, 0.2289487877731348}, "SriLanka", 
+    False}, {{-3.7810062028085034`, 0.1545641771646325}, "Madagascar", 
+    False}, {{-3.0305525535815727`, 0.1963895839355381}, "Cameroon", 
+    False}, {{-2.001340201810608, 0.1944472376216094}, "Angola", 
+    False}, {{-1.1553850257653808`, 0.2028733331191121}, "Chile", 
+    False}, {{-0.12798256796755206`, 0.21973582908907607`}, "Netherlands", 
+    False}, {{-3.6708123139602815`, 0.18859765978518922`}, "BurkinaFaso", 
+    False}, {{-4.0524486688962265`, 0.24741755658151687`}, "Malawi", 
+    False}, {{-4.192405861760883, 0.1733000005401974}, "Niger", 
+    False}, {{-3.181291575534576, 0.12448390826744074`}, "Cambodia", 
+    True}, {{-2.221343248022147, 0.1761690475153315}, "Guatemala", 
+    False}, {{-1.754618730221977, 0.21796587319744673`}, "Ecuador", 
+    False}, {{-3.6862476817164014`, 0.20422456851275034`}, "Mali", 
+    False}, {{-3.50625344288489, 0.21265939910755663`}, "Zambia", 
+    False}, {{-5.703265797778637, 0.16611682877012957`}, "Zimbabwe", 
+    True}, {{-3.2567971093961976`, 0.1177704753156037}, "Senegal", 
+    False}, {{-1.5659455872706334`, 0.1870218015136447}, "Cuba", 
+    False}, {{-0.4056529880129492, 0.24286615484588892`}, "Greece", 
+    False}, {{-3.464178114148264, 0.1359525578642876}, "Chad", 
+    False}, {{-0.7342076039183507, 0.2587021739389887}, "Portugal", 
+    False}, {{-0.2287237387227484, 0.21631113933895577`}, "Belgium", 
+    False}, {{-1.7483300704042883`, 0.265217688555566}, "Tunisia", 
+    False}, {{-0.8575630419999659, 0.27306513025976}, "Hungary", 
+    False}, {{-1.7741404336936604`, 0.20789796560200552`}, 
+    "DominicanRepublic", False}, {{-3.6806331605714493`, 
+    0.13830750964433955`}, "Haiti", False}, {{-3.7584478728376682`, 
+    0.1450693088823856}, "Guinea", False}, {{-3.834583118566351, 
+    0.15886267654419678`}, "Rwanda", False}, {{-2.3369575081105185`, 
+    0.16526833691522266`}, "Bolivia", False}, {{-0.2113063484518267, 
+    0.1986289129182794}, "Sweden", False}, {{-4.315339871970726, 
+    0.1765067500071396}, "Somalia", False}, {{-3.4402710718158107`, 
+    0.18117947318045635`}, "Benin", False}, {{-0.1534542198960624, 
+    0.25028174906662853`}, "Austria", False}, {{-4.789816569322658, 
+    0.12171496290339764`}, "Burundi", True}, {{-1.3195190413143498`, 
+    0.2756137632214907}, "Bulgaria", False}, {{-0.09346613425858169, 
+    0.2584383282720979}, "Switzerland", False}, {{-2.3054212940986796`, 
+    0.23126918708373823`}, "Honduras", False}, {{-0.47348622001041896`, 
+    0.23003352182464015`}, "Israel", False}, {{-3.1410473536459786`, 
+    0.2243185873164712}, "PapuaNewGuinea", False}, {{-4.065744910479204, 
+    0.20392982220737182`}, "Togo", False}, {{-1.200912851685046, 
+    0.18439652587879912`}, "Libya", False}, {{-2.3005033887258963`, 
+    0.2508281070008059}, "Paraguay", False}, {{-3.021076231937688, 
+    0.14124225103626362`}, "Laos", False}, {{-2.193856265734511, 
+    0.2832469183058326}, "Jordan", False}, {{-1.8712352473005034`, 
+    0.16327017256635484`}, "ElSalvador", False}, {{-2.7469914363671553`, 
+    0.22964146585925221`}, "Nicaragua", False}, {{-4.072135346110213, 
+    0.10457843307522999`}, "SierraLeone", True}, {{-0.21394713076976538`, 
+    0.21221793233067346`}, "Denmark", False}, {{-0.23612760207894534`, 
+    0.2421306767838418}, "Finland", False}, {{0.22442073606195106`, 
+    0.25899899637494705`}, "Norway", False}, {{0.10709634615873104`, 
+    0.3560711274823375}, "Singapore", True}, {{-1.4552061825319134`, 
+    0.19172276500170743`}, "CostaRica", False}, {{-0.006829802034047827, 
+    0.2642266741919851}, "UnitedArabEmirates", False}, {{-0.08366169006913447,
+     0.2235443049144421}, "Ireland", False}, {{-4.1450034695008, 
+    0.11628723902319624`}, "CentralAfricanRepublic", 
+    False}, {{-0.5188908842269636, 0.23512296167859562`}, "NewZealand", 
+    False}, {{-1.4812150468269303`, 0.24916073087016413`}, "Lebanon", 
+    False}, {{-4.7427788173516765`, 0.1639649088365522}, "Liberia", 
+    False}, {{-2.386853173361407, 0.30371623635696116`}, "RepublicCongo", 
+    False}, {{-1.3973581573599556`, 0.22299686764822488`}, "Panama", 
+    False}, {{-1.2767418724224102`, 0.18126071305908853`}, "Uruguay", 
+    False}, {{-3.159084172788402, 0.2761434106701158}, "Mauritania", 
+    False}, {{-1.8960490769408973`, 0.3015891185424615}, "Albania", False}, {{
+    0.10058039807125041`, 0.16671632620068366`}, "Kuwait", 
+    True}, {{-0.6570642713524176, 0.27036561686928967`}, "Oman", 
+    False}, {{-1.6518054883000577`, 0.22826669818794196`}, "Jamaica", 
+    False}, {{-2.555490106723515, 0.40259512899453925`}, "Mongolia", 
+    True}, {{-2.005231508181957, 0.22423428267233816`}, "Namibia", 
+    False}, {{-3.358772984354514, 0.38690483074938686`}, "Lesotho", 
+    True}, {{-1.1884439463076755`, 0.32537284208343625`}, "Botswana", 
+    False}, {{-3.5195165094163343`, 0.297312779627969}, "Gambia", 
+    True}, {{-4.399232612190499, 0.210637058981483}, "GuineaBissau", 
+    False}, {{-1.153617707034092, 0.3565779274810952}, "Gabon", 
+    False}, {{-0.7527658185633322, 0.22406847855346207`}, "TrinidadTobago", 
+    False}, {{0.43391476288713443`, 0.2456016571226747}, "Qatar", 
+    False}, {{-1.3458273688072921`, 0.2516818910331222}, "Mauritius", 
+    False}, {{-2.2282573119397884`, 0.19844839145669693`}, "Swaziland", 
+    False}}}, 
+  DynamicBox[ToBoxes[
+    Show[
+     Table[
+      ListPlot[
+       Map[Part[Miscellaneous`Private`x, 3][
+         Part[#, 1], 
+         Part[#, 2]]& , 
+        Part[Miscellaneous`Private`x, 1]], Frame -> True, 
+       Part[Miscellaneous`Private`x, 2]], {Miscellaneous`Private`x, 
+       ReplaceAll[{{
+         Miscellaneous`Private`dataToPlot$$, {
+          PlotStyle -> Gray, {
+           FrameTicks -> {{{
+               0, "1/1"}, {-Log[2], "1/2"}, {-Log[4], "1/4"}, {-Log[8], 
+                "1/8"}, {-Log[16], "1/16"}, {-Log[32], "1/32"}, {-Log[64], 
+                "1/64"}, {-Log[128], "1/128"}}, Automatic}, 
+            FrameLabel -> {
+             "\!\(\*FractionBox[\(Y/L\), \(\*SubscriptBox[\(Y\), \
+\(US\)]/\*SubscriptBox[\(L\), \(US\)]\)]\) in 2008", 
+              "I/Y (average 1970-2008)"}}, PlotMarkers -> Automatic}, #& }, {
+          Cases[Miscellaneous`Private`dataToPlot$$, {
+            Blank[], 
+            Blank[], True}], {
+          PlotStyle -> Darker[Gray], PlotMarkers -> Automatic}, Labeled[#, 
+           Style[#2, 
+            Darker[Gray]], Automatic]& }, {
+         Miscellaneous`Private`dataToPlot$$, {
+          PlotStyle -> Opacity[0], PlotMarkers -> Automatic}, EventHandler[
+           Tooltip[#, #2], 
+           "MouseClicked" :> (Miscellaneous`Private`dataToPlot$$ = 
+            ReplaceAll[Miscellaneous`Private`dataToPlot$$, {#, #2, 
+                Pattern[Miscellaneous`Private`state, 
+                 Blank[]]} :> {#, #2, 
+                Not[Miscellaneous`Private`state]}])]& }}, {{}, 
+          Blank[], 
+          Blank[]} :> Sequence[]]}]], StandardForm],
+   ImageSizeCache->{360., {129., 134.}}],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{3.5723683577404003`*^9}]
+}, Open  ]]
+},
+WindowSize->{740, 620},
+WindowMargins->{{283, Automatic}, {Automatic, 32}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 173, 3, 28, "Input"],
+Cell[CellGroupData[{
+Cell[755, 27, 5464, 137, 437, "Input"],
+Cell[6222, 166, 10501, 167, 278, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -13,14 +13,14 @@ argument, which is the URL obtained from the 'share' link under a question/answe
 
 monitorParallelTable::usage=
 "monitorParallelTable[expr_, iter__List, updatethreshold_] runs ParallelTable[expr, iter] while \
-monitoring a counter that increases each time a kernel runs for updatethreshold cycles. "
+monitoring a counter that increases each time a kernel runs for updatethreshold cycles."
 
 
 listPlotSelectedLabels::usage=
 "listPlotSelectedLabels[data_, A_, options_, labelPosition_: Automatic] makes a scatter plot \
 with only a subset of labels selected. `A` determines the density of the labels, and \
 labelPosition, the position of the labels. This function allows for ex-post customization \
-of the plot by clicking in the points in the graph". 
+of the plot by clicking in the points in the graph." 
 
 
 Begin["`Private`"] (* Begin Private Context *) 

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     17109,        354]
-NotebookOptionsPosition[     16739,        336]
-NotebookOutlinePosition[     17096,        352]
-CellTagsIndexPosition[     17053,        349]
+NotebookDataLength[     17154,        355]
+NotebookOptionsPosition[     16785,        337]
+NotebookOutlinePosition[     17141,        353]
+CellTagsIndexPosition[     17098,        350]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -331,11 +331,12 @@ Cell[BoxData[
           Blank[]} :> Sequence[]]}]], StandardForm],
    ImageSizeCache->{360., {129., 134.}}],
   DynamicModuleValues:>{}]], "Output",
- CellChangeTimes->{3.5723683577404003`*^9}]
+ CellChangeTimes->{3.5723683577404003`*^9, 3.579011395569607*^9, 
+  3.57901145193157*^9}]
 }, Open  ]]
 },
 WindowSize->{740, 620},
-WindowMargins->{{283, Automatic}, {Automatic, 32}},
+WindowMargins->{{Automatic, 80}, {38, Automatic}},
 FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
 2013)",
 StyleDefinitions->"Default.nb"
@@ -354,7 +355,7 @@ Notebook[{
 Cell[557, 20, 173, 3, 28, "Input"],
 Cell[CellGroupData[{
 Cell[755, 27, 5464, 137, 437, "Input"],
-Cell[6222, 166, 10501, 167, 278, "Output"]
+Cell[6222, 166, 10547, 168, 278, "Output"]
 }, Open  ]]
 }
 ]
